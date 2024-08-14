@@ -38,6 +38,7 @@ menu:
           - work: content/work/bucket-life.md
           - work: content/work/pricatrices.md
           - work: content/work/Digital-Content.md
+          - work: content/work/voces_psicologa.md
           - work: content/work/incansables.md
           - work: content/work/menstruar-es-salud.md
       - menu_item: Mora
