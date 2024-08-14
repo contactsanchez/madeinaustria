@@ -157,6 +157,8 @@ menu:
     menu_item_en: About
     slug: about
 featured_works:
+  - title: Beldent
+    work: content/work/Mas-masticas-menos-maquinas.md
   - title: 'Culpa Cero '
     work: content/work/Culpa-Cero.md
   - title: Dudas
@@ -182,5 +184,4 @@ featured_works:
   - title: CX90 PHEV
     work: content/work/cx90-phev.md
 ---
-
 
