@@ -1,8 +1,8 @@
 ---
-client: Beldent
+client: 'Beldent '
 photographer: content/photographer/recent_works.md
 p_agency: Digitas
-campaign: Producto
+campaign: Philippe Caillon
 year: 2024
 image_gallery:
   - /uploads/PRODUCTO-BELDENT9669 0809 copy.jpg
