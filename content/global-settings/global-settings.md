@@ -34,6 +34,7 @@ menu:
         menu_item_en: Santa
         slug: santa
         children:
+          - work: content/work/Mas-masticas-menos-maquinas.md
           - work: content/work/bucket-life.md
           - work: content/work/pricatrices.md
           - work: content/work/Digital-Content.md
