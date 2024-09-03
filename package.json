@@ -19,7 +19,7 @@
     "react-markdown": "^8.0.7",
     "sass": "^1.63.6",
     "swiper": "^11.0.4",
-    "tinacms": "1.5.19",
+    "tinacms": "2.2.2",
     "video.js": "^8.3.0"
   },
   "devDependencies": {
