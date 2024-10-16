@@ -45,6 +45,7 @@ menu:
         menu_item_en: Mora
         slug: mora
         children:
+          - work: content/work/Rapido-Mam.md
           - work: content/work/Culpa-Cero.md
           - work: content/work/compartamos-ternura.md
           - work: content/work/estacion-de-servicio.md
