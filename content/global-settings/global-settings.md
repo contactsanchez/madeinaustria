@@ -161,6 +161,8 @@ menu:
     menu_item_en: About
     slug: about
 featured_works:
+  - title: Rapido Mamá
+    work: content/work/Rapido-Mam.md
   - title: Beldent
     work: content/work/Mas-masticas-menos-maquinas.md
   - title: 'Culpa Cero '
