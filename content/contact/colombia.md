@@ -1,6 +1,6 @@
 ---
-country_es: Colombia
-country_en: Colombia
+country_es: Ecuador
+country_en: Ecuador
 contact_info: |
   Julian Surries N47-118
 
