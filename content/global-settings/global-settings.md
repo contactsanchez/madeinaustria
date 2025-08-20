@@ -19,17 +19,6 @@ menu:
           - work: content/work/toro_mecanico.md
           - work: content/work/maquina_de_escribir.md
           - work: content/work/miralo-en-camara-lenta.md
-      - menu_item: Ranchez
-        menu_item_en: Ranchez
-        slug: ranchez
-        children:
-          - work: content/work/hola-colombia.md
-          - work: content/work/marca.md
-          - work: content/work/be-2-fit.md
-          - work: content/work/Lanzamiento.md
-          - work: content/work/sabe_a_alpina.md
-          - work: content/work/zona_v.md
-          - work: content/work/grandes-entregas.md
       - menu_item: Santa
         menu_item_en: Santa
         slug: santa
@@ -77,20 +66,6 @@ menu:
           - work: content/work/undressed.md
           - work: content/work/remote-selling.md
           - work: content/work/Lights-on.md
-      - menu_item: Mateo Hincapie
-        menu_item_en: Mateo Hincapie
-        slug: mateo_hincapie
-        children:
-          - work: content/work/f150.md
-          - work: content/work/pescaderia.md
-          - work: content/work/texaco.md
-      - menu_item: Nats Gomez
-        menu_item_en: Nats Gomez
-        slug: nats_gomez
-        children:
-          - work: content/work/Vive-mas-con-Nu.md
-          - work: content/work/enfrenta_tu_belleza.md
-          - work: content/work/credifest.md
   - menu_item: Fotógrafos
     menu_item_en: Photographers
     slug: photographers
