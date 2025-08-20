@@ -99,22 +99,6 @@ menu:
           - photographs: content/photography/i_am_a_woman.md
           - photographs: content/photography/archer.md
           - photographs: content/photography/cadillac.md
-      - menu_item: Alberto Oviedo
-        menu_item_en: Alberto Oviedo
-        slug: alberto_oviedo
-        children:
-          - photographs: content/photography/Virgin-Voyages.md
-          - photographs: content/photography/Champion.md
-          - photographs: content/photography/Adidas.md
-      - menu_item: Augusto Cartagena
-        menu_item_en: Augusto Cartagena
-        slug: augusto_cartagena
-        children:
-          - photographs: content/photography/Aguila-00--.md
-          - photographs: content/photography/Pollos-Friko.md
-          - photographs: content/photography/Suarez.md
-          - photographs: content/photography/Sprite.md
-          - photographs: content/photography/Puegeot.md
       - menu_item: Martin Kohler
         menu_item_en: Martin Kohler
         slug: martin_kohler
@@ -124,13 +108,6 @@ menu:
           - photographs: content/photography/Aguila-00--.md
           - photographs: content/photography/Pony-Malta.md
           - photographs: content/photography/Aguila--.md
-      - menu_item: Camilo Villabona
-        menu_item_en: Camilo Villabona
-        slug: camilo_villabona
-        children:
-          - photographs: content/photography/Sol-de-Mayo.md
-          - photographs: content/photography/Soka.md
-          - photographs: content/photography/Esther.md
   - menu_item: Contacto
     menu_item_en: Contact
     slug: '#contact-section'
