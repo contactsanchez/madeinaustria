@@ -115,6 +115,8 @@ menu:
     menu_item_en: About
     slug: about
 featured_works:
+  - title: Te extrañare
+    work: content/work/Te-extraare.md
   - title: El antojo infinito
     work: content/work/El-antojo-infinito.md
   - title: Rapido Mamá
