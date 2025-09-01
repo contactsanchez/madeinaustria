@@ -115,6 +115,8 @@ menu:
     menu_item_en: About
     slug: about
 featured_works:
+  - title: El antojo infinito
+    work: content/work/El-antojo-infinito.md
   - title: Rapido Mamá
     work: content/work/Rapido-Mam.md
   - title: Beldent
@@ -125,8 +127,6 @@ featured_works:
     work: content/work/dudas.md
   - title: Voces
     work: content/work/voces_psicologa.md
-  - title: sabe_a_alpina
-    work: content/work/sabe_a_alpina.md
   - title: 'Budweiser '
     work: content/work/Digital-Content.md
   - title: Not Snack
