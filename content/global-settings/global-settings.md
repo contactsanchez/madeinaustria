@@ -135,12 +135,8 @@ featured_works:
     work: content/work/pricatrices.md
   - title: Salad days
     work: content/work/salad_days.md
-  - title: Marca
-    work: content/work/marca.md
   - title: Pájaro
     work: content/work/pajaro.md
-  - title: Trading Made Clear
-    work: content/work/trading-made-clear.md
   - title: CX90 PHEV
     work: content/work/cx90-phev.md
 ---
