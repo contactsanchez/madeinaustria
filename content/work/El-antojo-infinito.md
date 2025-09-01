@@ -5,6 +5,7 @@ agency: Publicis
 brand: Nestle
 video_url: >-
   https://player.vimeo.com/progressive_redirect/playback/1114961936/rendition/1080p/file.mp4?loc=external&signature=19cc9a7b992970d45fb6617fcc0ef79b7a13e88428814b8367b16e9c0e21ab4d
+featured_image: /uploads/NESTLE .jpg
 permalink: el-antojo-infinito
 work_director: content/director/santa.md
 hidde_reel: true
