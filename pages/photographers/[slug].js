@@ -119,43 +119,47 @@ export async function fetchPhotographerBySlug(slug) {
   
       return photographer;
     } catch (error) {
-      console.error('Error fetching director:', error);
+      console.error('Error fetching photographer:', error);
       return null;
     }
 }
 
 export async function fetchPhotographsByPhotographer(photographer) {
     try {
-
         const response = await client.queries.photographsConnection();
-
+        
         const photographs = response.data.photographsConnection.edges.map((edge) => {
-        const photo = edge.node;
-        const photographerSlug = photographer.photographer_slug;
-  
-        if (photo.photographer && photo.photographer.photographer_slug && photo.photographer.photographer_slug.includes(photographerSlug)) {
-            return photo;
-        } else {
-            return null;
-        }
-      }).filter(Boolean);
+            const photo = edge.node;
+            const photographerSlug = photographer?.photographer_slug;
+    
+            if (photo.photographer && photo.photographer.photographer_slug && photo.photographer.photographer_slug.includes(photographerSlug)) {
+                return photo;
+            } else {
+                return null;
+            }
+        }).filter(Boolean);
 
-      return photographs;
+        return photographs;
     } catch (error) {
-      console.error('Error fetching works:', error);
-      return null;
+        console.error('Error fetching photographs:', error);
+        return [];
     }
 }
 
 const getContactDataArray = (contacts) => {
+    if (!contacts?.data?.contactConnection?.edges) {
+        return [];
+    }
+    
     const contactsData = contacts.data.contactConnection.edges.map((contact) => {
-      return { 
-        id: contact.node.id,
-        country_es: contact.node.country_es,
-        country_en: contact.node.country_en,
-        contact_info: contact.node.contact_info.children,
-        contact_info_en: contact.node.contact_info_eng.children
-      }
+        const safeContact = contact?.node || {};
+        return { 
+            id: safeContact.id || '',
+            country_es: safeContact.country_es || '',
+            country_en: safeContact.country_en || '',
+            contact_info: safeContact.contact_info?.children || '',
+            contact_info_en: safeContact.contact_info_eng?.children || ''
+        }
     });
   
     return contactsData;

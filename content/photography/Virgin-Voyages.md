@@ -1,6 +1,6 @@
 ---
 client: Virgin Voyages
-photographer: content/photographer/alberto_oviedo.md
+photographer: 
 campaign: Voyages
 image_gallery:
   - /uploads/Alberto_Oviedo_virgin_Voyages_015.jpg

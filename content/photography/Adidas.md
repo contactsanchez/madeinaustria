@@ -1,6 +1,6 @@
 ---
 client: Adidas
-photographer: content/photographer/alberto_oviedo.md
+photographer: 
 campaign: Swim
 image_gallery:
   - /uploads/Alberto_Oviedo_Adidas_009.jpg

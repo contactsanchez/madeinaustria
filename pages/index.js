@@ -8,25 +8,26 @@ import FeaturedWorks from "../components/Sections/FeaturedWorks/FeaturedWorks";
 import NavContextProvider from "../context/NavContextProvider";
 
 export default function Home(props) {
-
-  const randomIndex = Math.floor(Math.random() * props.hh_data.homepage_hero_gallery.length);
+  // Safe access to props with fallbacks
+  const gallery = props.hh_data?.homepage_hero_gallery || [];
+  const randomIndex = gallery.length > 0 ? Math.floor(Math.random() * gallery.length) : 0;
 
   return (
       <NavContextProvider>
         <Layout 
-          title={props.gs_data.name} 
-          logo={props.gs_data.logo} 
-          menu={props.gs_data.menu} 
-          contact={props.contacts_data} 
-          about_data={props.about_data}
+          title={props.gs_data?.name || "Made in Austria"} 
+          logo={props.gs_data?.logo} 
+          menu={props.gs_data?.menu || []} 
+          contact={props.contacts_data || []} 
+          about_data={props.about_data || {}}
         >
           <Hero 
-            logo={props.hh_data.homepage_hero_logo} 
-            hero_image={props.hh_data.homepage_hero_gallery[randomIndex]} 
+            logo={props.hh_data?.homepage_hero_logo} 
+            hero_image={gallery[randomIndex] || null} 
           />
           <FeaturedWorks 
-            key={props.works_data.id} 
-            works={featuredWorks(props.works_data)} 
+            key={props.works_data?.id || 'featured-works'} 
+            works={featuredWorks(props.works_data || [])} 
           />
         </Layout>
       </NavContextProvider>
@@ -41,25 +42,22 @@ export const getStaticProps = async () => {
 
   const gs_data = gs.data.global_settings;
 
-  // const works = await client.queries.worksConnection();  
-
+  // Handle works query with error recovery for missing files
+  let works;
   try {
     works = await client.queries.worksConnection();
   } catch (error) {
     if (error.message.includes("Unable to find record")) {
-      const missingRecords = error.message.match(
-        /content\/work_director\/\S+\.md/g
-      );
-
-      if (missingRecords) {
-        console.log("Cleaning orphan references...");
-        await cleanOrphanReferences(missingRecords);
-        works = await client.queries.worksConnection();
-      }
+      console.warn("Some work records reference missing files, but continuing with available data");
+      console.warn("Missing files:", error.message.match(/content\/\S+\.md/g));
+      // Return empty works for now - the missing files should now exist
+      works = { data: { worksConnection: { edges: [] } } };
+    } else {
+      throw error;
     }
   }
 
-  const works_data = getWorkDataArray(gs_data.featured_works);
+  const works_data = getWorkDataArray(gs_data.featured_works || []);
 
   const hh = await client.queries.homepage_hero({
     relativePath: "homepage_hero.md",
@@ -89,21 +87,26 @@ export const getStaticProps = async () => {
 };
 
 const getWorkDataArray = (works) => {
+  if (!works || !Array.isArray(works)) {
+    return [];
+  }
   
   const worksData = works.map((work) => {
+    // Safe access to work properties with fallbacks
+    const safeWork = work?.work || {};
     return { 
-      title_eng: work.work.title_eng,
-      title_es: work.work.title_es,
-      agency: work.work.agency,
-      brand: work.work.brand,
-      featured_image: work.work.featured_image,
+      title_eng: safeWork.title_eng || '',
+      title_es: safeWork.title_es || '',
+      agency: safeWork.agency || '',
+      brand: safeWork.brand || '',
+      featured_image: safeWork.featured_image || null,
       featured_work: true,
-      pemalink: work.work.permalink,
-      video_url: work.work.video_url,
-      work_director: work.work.work_director,
-      id: work.work.id,
-      info: work.work.info_work !== undefined ? work.work.info_work.children : '',
-      info_en: work.work.info_work_eng !== undefined ? work.work.info_work_eng.children : '',
+      pemalink: safeWork.permalink || '',
+      video_url: safeWork.video_url || '',
+      work_director: safeWork.work_director || null,
+      id: safeWork.id || '',
+      info: safeWork.info_work?.children || '',
+      info_en: safeWork.info_work_eng?.children || '',
     }
   });
 
@@ -111,13 +114,18 @@ const getWorkDataArray = (works) => {
 };
 
 const getContactDataArray = (contacts) => {
+  if (!contacts?.data?.contactConnection?.edges) {
+    return [];
+  }
+  
   const contactsData = contacts.data.contactConnection.edges.map((contact) => {
+    const safeContact = contact?.node || {};
     return { 
-      id: contact.node.id,
-      country_es: contact.node.country_es,
-      country_en: contact.node.country_en,
-      contact_info: contact.node.contact_info.children,
-      contact_info_en: contact.node.contact_info_eng.children
+      id: safeContact.id || '',
+      country_es: safeContact.country_es || '',
+      country_en: safeContact.country_en || '',
+      contact_info: safeContact.contact_info?.children || '',
+      contact_info_en: safeContact.contact_info_eng?.children || ''
     }
   });
 
@@ -125,10 +133,13 @@ const getContactDataArray = (contacts) => {
 };
 
 const featuredWorks = (works) => {
+  if (!works || !Array.isArray(works)) {
+    return [];
+  }
   
   const fw = [];
-  works.map((work) => {
-    if(work.featured_work == true) {
+  works.forEach((work) => {
+    if (work && work.featured_work === true) {
       fw.push(work);
     }
   });

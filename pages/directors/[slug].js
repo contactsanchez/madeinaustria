@@ -2,6 +2,13 @@ import NavContextProvider from "../../context/NavContextProvider";
 import { Layout } from "../../components/Layout/Layout";
 import DirectorGrid from "../../components/Sections/DirectorGrid/DirectorGrid";
 import { client } from "../../tina/__generated__/client";
+import { 
+  safeQuery, 
+  safeFetchDirectorBySlug, 
+  safeGlobalSettings, 
+  safeContactsConnection, 
+  safeAboutData 
+} from "../../helpers/safe-queries";
 
 export default function DirectorsSlug(props) {
 
@@ -25,7 +32,10 @@ export default function DirectorsSlug(props) {
 
 export const getStaticPaths = async () => {
 
-  const directors = await client.queries.directorsConnection();
+  const directors = await safeQuery(
+    () => client.queries.directorsConnection(),
+    { data: { directorsConnection: { edges: [] } } }
+  );
 
   //console.log("PATHS: ", directors.data.directorsConnection.edges);
 

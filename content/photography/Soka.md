@@ -1,6 +1,6 @@
 ---
 client: Soka
-photographer: content/photographer/camilo_villabona.md
+photographer: 
 image_gallery:
   - /uploads/Soka 2.jpg
   - /uploads/Soka 1.jpg

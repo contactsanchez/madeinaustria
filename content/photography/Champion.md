@@ -1,6 +1,6 @@
 ---
 client: Champion
-photographer: content/photographer/alberto_oviedo.md
+photographer: 
 campaign: Hasbro
 image_gallery:
   - /uploads/Alberto_Oviedo_Champion015.jpg
